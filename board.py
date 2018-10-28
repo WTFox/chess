@@ -18,18 +18,16 @@ class Board:
         for row in board:
             print(row)
 
+    def is_valid_bounds(self, coords):
+        return self.UPPER_BOUNDS > coords.row >= self.LOWER_BOUNDS \
+                and self.UPPER_BOUNDS > coords.column >= self.LOWER_BOUNDS
+
     def filter_to_valid_bounds(self, coordinate_list):
         return tuple(
             [
                 coords
                 for coords in coordinate_list
-                if (
-                    (coords.row < self.UPPER_BOUNDS and coords.row >= self.LOWER_BOUNDS)
-                    and (
-                        coords.column < self.UPPER_BOUNDS
-                        and coords.column >= self.LOWER_BOUNDS
-                    )
-                )
+                if self.is_valid_bounds(coords)
             ]
         )
 
