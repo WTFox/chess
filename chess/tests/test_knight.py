@@ -1,8 +1,8 @@
 import unittest
 
-from board import Board
-from pieces import Knight
-from utils import Coordinates
+from chess.board import Board
+from chess.pieces import Knight
+from chess.utils import Coordinates
 
 
 class TestKnightFindValidPositions(unittest.TestCase):
