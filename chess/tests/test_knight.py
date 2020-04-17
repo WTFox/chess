@@ -10,7 +10,7 @@ class TestKnightFindValidPositions(unittest.TestCase):
         self.board = Board()
         self.knight = Knight()
 
-    def test_lower_left_corner_location_filters_out_of_bounts(self):
+    def test_lower_left_corner_location_filters_out_of_bounds(self):
         knight_pos = Coordinates(7, 0)
         self.board.set_piece(knight_pos, self.knight)
         results = self.board.find_available_moves_to_highlight(knight_pos)
@@ -60,6 +60,10 @@ class TestKnightFindValidPositions(unittest.TestCase):
 
         for coord in expected:
             self.assertIn(coord, results)
+    
+    def test_filter_out_location_other_same_color_pieces(self):
+        # TODO: write this
+        pass
 
 
 if __name__ == "__main__":
