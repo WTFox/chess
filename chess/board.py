@@ -1,3 +1,6 @@
+from chess.pieces import Knight
+
+
 class Board:
     LOWER_BOUNDS = 0
     UPPER_BOUNDS = 8
@@ -12,7 +15,9 @@ class Board:
         self.board[coordinates.row][coordinates.column] = piece
 
     def build_board(self):
-        return [[None] * self.UPPER_BOUNDS for n in range(self.UPPER_BOUNDS)]
+        board = [[None] * self.UPPER_BOUNDS for n in range(self.UPPER_BOUNDS)]
+        board[0][1] = Knight()
+        return board
 
     def pprint_board(self, board):
         for row in board:
